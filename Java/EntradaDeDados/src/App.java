@@ -1,4 +1,5 @@
-import digitacao.EntradaTeclado;
+package EntradaDeDados;
+import EntradaDeDados.digitacao.EntradaTeclado;
 
 public class App {
     public static void main(String[] args) throws Exception {

@@ -1,4 +1,4 @@
-package digitacao;
+package EntradaDeDados.digitacao;
 
 import java.util.Scanner;
 
