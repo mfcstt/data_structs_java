@@ -1,4 +1,4 @@
-package EntradaDeDados.digitacao;
+package digitacao;
 
 import java.util.Scanner;
 
@@ -31,4 +31,15 @@ public class EntradaTeclado {
         return dado;
     }
 
+    public double decimal(String mensagem) throws Exception {
+        double dado = 0;
+        String aux = texto(mensagem);
+        aux = aux.replaceAll(",", ".");
+        try {
+            dado = Double.parseDouble(aux);
+        } catch (Exception ex) {
+            throw new Exception("erro de digitação");
+        }
+        return 0.0d;
+    }
 }
