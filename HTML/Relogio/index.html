@@ -1,15 +1,44 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>clock</title>
-    <link rel="stylesheet" href="style.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="./stylesheet/style.css">
 </head>
-    <body>
-        <div class="clock"></div>
-        </body>
-            </html>
+<body>
+    <div class="clock">
+        <div class="numbers">
+            <span style="--i:0;"><b>12</b></span>
+            <span style="--i:1;"><b>3</b></span>
+            <span style="--i:2;"><b>6</b></span>
+            <span style="--i:3;"><b>9</b></span>
+            <div class="circle" id="hr"><i></i></div>
+            <div class="circle" id="mm"><i></i></div>
+            <div class="circle" id="sc"><i></i></div>
+        </div>
+    </div>
+    <script>
+        let hr = document.querySelector('#hr');
+        let mm = document.querySelector('#mm');
+        let sc = document.querySelector('#sc');
 
+    setInterval(() => {
+    let day = new Date();
+  
+  // Defina o fuso horário para Brasília (GMT-3)
+  day.setTime(day.getTime() - 3 * 60 * 60 * 1000);
+
+  let hh = day.getHours() * 30;
+  let mn = day.getMinutes() * 6;
+  let ss = day.getSeconds() * 6;
+
+  hr.style.transform = `rotateZ(${hh + (mn / 12)}deg)`;
+  mm.style.transform = `rotateZ(${mn}deg)`; 
+  sc.style.transform = `rotateZ(${ss}deg)`;
+}, 1000); // Atualiza a cada segundo
+
+        
+    </script>
+</body>
+</html>
