@@ -7,8 +7,8 @@ public class App {
         String VAZIO = " ";
 
         String[] tabuleiro = { VAZIO, VAZIO, VAZIO,
-                               VAZIO, VAZIO, VAZIO,
-                               VAZIO, VAZIO, VAZIO };
+                VAZIO, VAZIO, VAZIO,
+                VAZIO, VAZIO, VAZIO };
 
         int jogada = 0;
 
@@ -21,12 +21,17 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Escolha X ou O: ");
-        jogador1 = scanner.nextLine();
+        jogador1 = scanner.nextLine().toUpperCase(null);
 
         if (jogador1.equals(X)) {
             jogador2 = O;
         } else {
             jogador2 = X;
+        }
+        if (jogador1.equals(x)) {
+            jogador2 = o;
+        } else {
+            jogador2 = x;
         }
 
         for (int i = 0; i < 9; i += 3) {
