@@ -12,12 +12,13 @@ body{
     display: flex;
 
     align-items: center;
-    justify-content: center
-    ;
+    justify-content: center;
+
+    font-family: 'Sora', sans-serif;
 
 }
 
-.cronometro {
+#relogio {
 
 
     width: 300px;
@@ -31,41 +32,60 @@ body{
     
 }
 
-form{
+#numeros{
     
     align-self: flex-start;
-    align-items: center;
+
     
-    font-size: 20px;
+    font-size: 17px;
     font-weight: bold;
 
-    display: block;
+    display: flex;
+    flex-direction: row;
+   
 
     background-color: #e3e7f0;
     border: 1px solid #b3b3b3;
     border-radius: 10px;
 
-    text-align: center;
+
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
 }
 
 
-input[type="button"]{
-
+.but{
+  
     border-radius: 50px;
     margin-top: 30px;
-    margin-left: 20px;
+    margin-left: 25px;
 
     justify-content: center;
-    width: 110px;
+    width: 100px;
     height: 70px;
     font-size: 20px;
     font-weight: bold;
     
     
     cursor: pointer;
+
+    color: #fff;
+    background-color: #252c3a;
+    border: none;
+    
+}
+.but:hover{
+    background-color: #996DFF;
+    color: #000;
+    transition: 0.2s;
+}
+
+#tempo{
+
+    color: #ccc;
+    margin-top: 30px;
+   
 }
 
 
