@@ -1,0 +1,45 @@
+
+body{
+    font-family: 'Roboto', sans-serif;   
+    display: flex;  
+    align-items: center;
+    justify-content: center; 
+    height: 100hv;
+    margin: 200px;
+ background-color: #996dff;
+
+    
+}
+
+#localTabela{
+    border: solid 1px;
+    border-color: #C7AFFF;
+    background-color: #181d28;
+}
+
+
+table {
+    width: 400px;
+    height: 300px;  
+    text-align: center;
+}
+
+
+td { 
+  
+  border: solid 1p;
+  color: azure;
+}
+
+
+th {
+    background-color: #181d28;
+    height: 50px;
+    color: azure;
+   
+}
+
+
+
+
+
