@@ -18,10 +18,10 @@ body {
 }
 
 #ii {
-    width: 100%;
-    max-width: 230px;
+    width: 800px;
+    max-width: 220px;
     height: 100%;
-    max-height: 700px;
+    max-height: 450px;
     background-color: #fff;
 
    
@@ -63,7 +63,7 @@ input[type=text], input[type=password], input[type=email] {
 
 input[type=button] {
     width: 100%;
-    background: linear-gradient(90deg, #996DFF 0%, #C7AFFF 100%);
+    background: linear-gradient(90deg, rgb(84, 56, 148) 0%, #C7AFFF 100%);
     color: white;
     padding: 14px 20px;
     margin-top: 10px;
