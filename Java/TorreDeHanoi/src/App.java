@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
@@ -5,54 +6,112 @@ public class App {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
-
-        // O objectivo deste jogo consiste em deslocar todos os discos da haste onde se
-        // encontram para uma haste diferente, respeitando as seguintes regras: deslocar
-        // um disco de cada vez, o qual deverá ser o do topo de uma das três hastes;
-        // cada disco nunca poderá ser colocado sobre outro de diâmetro mais pequeno. O
-        // jogo termina quando todos os discos estiverem empilhados numa das hastes,
-        // respeitando a regra acima referida.
-
-        // qual a torre de destino (não pode mover para a mesma)
-        // qual a torre de origem (não pode mover para a mesma)
-        // 3 discos 8 movimentos
-        // 10 discos 1024 movimentos
-        // 3 torres
-        // valores do disco
-        // redesenhar a torre e imprimi-la (vetor)
-        // menor quantidade de movimentos
-        // quantidade de movimentos
-        // criar 3 vetores (deslocar os discos entre eles)
-        // função para imprimir as torres
-
-        String[] torre1 = { "             ***  ",
-                "            *****  ",
-                "          *********  ",
-                "         ***********  ",
-                "        *************",
-                "       ***************",
-                "      *****************  ",
-                "     *******************  ",
-                "    *********************  ",
-                "   ***********************   "
+        // Inicialize as torres
+        String[] torre1 = {
+            "             ***  ",
+            "            *****  ",
+            "          *********  ",
+            "         ***********  ",
+            "        *************",
+            "       ***************",
+            "      *****************  ",
+            "     *******************  ",
+            "    *********************  ",
+            "   ***********************   "
         };
-        // String[] torre2 =
-        // String[] torre3 =
-        System.out.println(imprimirTorre(torre1));
 
+        String[] torre2 = new String[10];
+        String[] torre3 = new String[10];
+
+        // Preencha as torres vazias com espaços
+        Arrays.fill(torre2, "                          ");
+        Arrays.fill(torre3, "                          ");
+
+        // Imprima as torres iniciais
+        imprimirTorres(torre1, torre2, torre3);
+
+        // Enquanto o jogo não estiver resolvido, peça ao usuário para fazer um movimento
+        while (!isResolvido(torre3)) {
+            System.out.println("Digite a torre de origem (1, 2 ou 3):");
+            int origem = scanner.nextInt();
+
+            System.out.println("Digite a torre de destino (1, 2 ou 3):");
+            int destino = scanner.nextInt();
+
+            if (origem == 1 && destino == 2) {
+                moverDisco(torre1, torre2);
+            } else if (origem == 1 && destino == 3) {
+                moverDisco(torre1, torre3);
+            } else if (origem == 2 && destino == 1) {
+                moverDisco(torre2, torre1);
+            } else if (origem == 2 && destino == 3) {
+                moverDisco(torre2, torre3);
+            } else if (origem == 3 && destino == 1) {
+                moverDisco(torre3, torre1);
+            } else if (origem == 3 && destino == 2) {
+                moverDisco(torre3, torre2);
+            }
+
+            // Imprima as torres após cada movimento
+            imprimirTorres(torre1, torre2, torre3);
+        }
+
+        System.out.println("Parabéns, você resolveu a Torre de Hanoi!");
     }
 
-    public static String imprimirTorre(String[] torre1) {
-        // for
-        System.out.println("Torre 1: " + "\n" + torre1[0] + "\n" + torre1[1] + "\n" + torre1[2] + "\n" + torre1[3]
-                + "\n" + torre1[4] + "\n" + torre1[5] + "\n" + torre1[6] + "\n" + torre1[7] + "\n" + torre1[8] + "\n"
-                + torre1[9]);
-        // System.out.println("Torre 2: " + "\n" + torre1[0] + "\n" + torre1[1] + "\n" +
-        // torre1[2]);
-        // System.out.println("Torre 3: " + "\n" + torre1[0] + "\n" + torre1[1] + "\n" +
-        // torre1[2]);
-
-        return "";
+    public static void imprimirTorre(String[] torre) {
+        for (int i = 0; i < torre.length; i++) {
+            System.out.println(torre[i]);
+        }
     }
 
+    public static void imprimirTorres(String[] torre1, String[] torre2, String[] torre3) {
+        System.out.println("Torre 1:");
+        imprimirTorre(torre1);
+
+        System.out.println("Torre 2:");
+        imprimirTorre(torre2);
+
+        System.out.println("Torre 3:");
+        imprimirTorre(torre3);
+    }
+
+    public static void moverDisco(String[] origem, String[] destino) {
+        int origemIndex = -1;
+        int destinoIndex = -1;
+
+        for (int i = origem.length - 1; i >= 0; i--) {
+            if (!origem[i].trim().isEmpty()) {
+                origemIndex = i;
+                break;
+            }
+        }
+
+        for (int i = destino.length - 1; i >= 0; i--) {
+            if (!destino[i].trim().isEmpty()) {
+                destinoIndex = i;
+                break;
+            }
+        }
+
+        destinoIndex++;
+
+        if (origemIndex == -1 || (destinoIndex > 0 && origem[origemIndex].trim().length() > destino[destinoIndex - 1].trim().length())) {
+            System.out.println("Movimento inválido. Verifique as regras do jogo.");
+            return;
+        }
+
+        destino[destinoIndex] = origem[origemIndex];
+        origem[origemIndex] = "                          ";
+    }
+
+    public static boolean isResolvido(String[] torre) {
+        for (int i = 0; i < torre.length; i++) {
+            if (torre[i].trim().isEmpty()) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
