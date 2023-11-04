@@ -10,18 +10,11 @@ public class App {
         String[] torre1 = {
             "             ***  ",
             "            *****  ",
-            "          *********  ",
-            "         ***********  ",
-            "        *************",
-            "       ***************",
-            "      *****************  ",
-            "     *******************  ",
-            "    *********************  ",
-            "   ***********************   "
+            "          *********  "
         };
 
-        String[] torre2 = new String[10];
-        String[] torre3 = new String[10];
+        String[] torre2 = new String[3];
+        String[] torre3 = new String[3];
 
         // Preencha as torres vazias com espaços
         Arrays.fill(torre2, "                          ");
@@ -38,22 +31,26 @@ public class App {
             System.out.println("Digite a torre de destino (1, 2 ou 3):");
             int destino = scanner.nextInt();
 
-            if (origem == 1 && destino == 2) {
-                moverDisco(torre1, torre2);
-            } else if (origem == 1 && destino == 3) {
-                moverDisco(torre1, torre3);
-            } else if (origem == 2 && destino == 1) {
-                moverDisco(torre2, torre1);
-            } else if (origem == 2 && destino == 3) {
-                moverDisco(torre2, torre3);
-            } else if (origem == 3 && destino == 1) {
-                moverDisco(torre3, torre1);
-            } else if (origem == 3 && destino == 2) {
-                moverDisco(torre3, torre2);
-            }
+            if (validarMovimento(origem, destino)) {
+                if (origem == 1 && destino == 2) {
+                    moverDisco(torre1, torre2);
+                } else if (origem == 1 && destino == 3) {
+                    moverDisco(torre1, torre3);
+                } else if (origem == 2 && destino == 1) {
+                    moverDisco(torre2, torre1);
+                } else if (origem == 2 && destino == 3) {
+                    moverDisco(torre2, torre3);
+                } else if (origem == 3 && destino == 1) {
+                    moverDisco(torre3, torre1);
+                } else if (origem == 3 && destino == 2) {
+                    moverDisco(torre3, torre2);
+                }
 
-            // Imprima as torres após cada movimento
-            imprimirTorres(torre1, torre2, torre3);
+                // Imprima as torres após cada movimento
+                imprimirTorres(torre1, torre2, torre3);
+            } else {
+                System.out.println("Movimento inválido. Verifique as regras do jogo.");
+            }
         }
 
         System.out.println("Parabéns, você resolveu a Torre de Hanoi!");
@@ -80,6 +77,7 @@ public class App {
         int origemIndex = -1;
         int destinoIndex = -1;
 
+        // Encontre o primeiro disco não vazio de baixo para cima na torre de origem
         for (int i = origem.length - 1; i >= 0; i--) {
             if (!origem[i].trim().isEmpty()) {
                 origemIndex = i;
@@ -87,20 +85,16 @@ public class App {
             }
         }
 
+        // Encontre a primeira posição vazia de baixo para cima na torre de destino
         for (int i = destino.length - 1; i >= 0; i--) {
-            if (!destino[i].trim().isEmpty()) {
+            if (destino[i].trim().isEmpty()) {
                 destinoIndex = i;
+            } else {
                 break;
             }
         }
 
-        destinoIndex++;
-
-        if (origemIndex == -1 || (destinoIndex > 0 && origem[origemIndex].trim().length() > destino[destinoIndex - 1].trim().length())) {
-            System.out.println("Movimento inválido. Verifique as regras do jogo.");
-            return;
-        }
-
+        // Mova o disco
         destino[destinoIndex] = origem[origemIndex];
         origem[origemIndex] = "                          ";
     }
@@ -112,6 +106,13 @@ public class App {
             }
         }
 
+        return true;
+    }
+
+    public static boolean validarMovimento(int origem, int destino) {
+        if (origem < 1 || origem > 3 || destino < 1 || destino > 3 || origem == destino) {
+            return false;
+        }
         return true;
     }
 }
