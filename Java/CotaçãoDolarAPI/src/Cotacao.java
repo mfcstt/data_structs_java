@@ -5,7 +5,14 @@ public class Cotacao {
     private float cotatacaoCompra;
     private float cotacaoVenda;
     private String dataHoraCotacao;
+    
+// aqui estamos sobrescrevendo o metodo toString para que ele retorne os valores
+    @Override
+    public String toString() {
+        return "{" + "[cotatacaoCompra:" + cotatacaoCompra + ", cotacaoVenda:" + cotacaoVenda + ", dataHoraCotacao:" + dataHoraCotacao + "}";
+    }
 
+// aqui utilizei o gerador de getters e setters para criar os metodos e atributos da classe para que possamos acessar os atributos privados
     public float getCotatacaoCompra() {
         return cotatacaoCompra;
     }
