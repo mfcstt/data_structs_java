@@ -1,0 +1,53 @@
+body {
+    background-color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+input[type="file"], textarea {
+    background-color: #FFFFFF;
+    color: #09090A;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+}
+input[type="file"], textarea {
+    background-color: #FFFFFF;
+    color: #09090A;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+}
+
+input[type="file"]:hover, textarea:hover {
+    background-color: #FFFFFF;
+}
+
+button {
+    background: #09090A;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    padding: 10px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #C7AFFF, #996dff);
+}
+
+fieldset {
+    border-color: #C4C4CC;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+legend {
+    color: #09090A;
+}
