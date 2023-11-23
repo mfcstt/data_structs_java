@@ -32,5 +32,47 @@ public class EntradaDeDados {
 
         return dado;
     }
+    
+    public double doubleValue(String mensagem, String msgerro, boolean repetir) {
+
+        double dado = 0.0;
+        boolean erro = false;
+        do {
+            String digitado = texto(mensagem);
+            try {
+                dado = Double.parseDouble(digitado);
+                erro = false;
+            } catch (RuntimeException e) {
+                System.out.println(msgerro);
+                erro = repetir;
+            }
+
+        } while (erro == true);
+
+        return dado;
+    }
+    
+    public char charValue(String mensagem, String msgerro, boolean repetir) {
+
+        char dado = 0;
+        boolean erro = false;
+        do {
+            String digitado = texto(mensagem);
+            try {
+                if (digitado.length() == 1) {
+                    dado = digitado.charAt(0);
+                    erro = false;
+                } else {
+                    throw new RuntimeException();
+                }
+            } catch (RuntimeException e) {
+                System.out.println(msgerro);
+                erro = repetir;
+            }
+
+        } while (erro == true);
+
+        return dado;
+    }
 
 }
