@@ -1,19 +1,30 @@
 function exibirDados() {
-    let contatos = JSON.parse(localStorage.getItem('meusContatos')) || [];
-    let corpoTabela = document.getElementById("corpoTabela");
-    corpoTabela.innerHTML = ''; // Limpa a tabela antes de adicionar novos dados
+    //recupera os valorres 
+    let contatos = JSON.parse(localStorage.getItem('meusContatos')) || []
+    let tabela = document.getElementById("tabela")
+    
 
+    //cria nova linhas cada vez que novos dados sao adicionados
     for (let i = 0; i < contatos.length; i++) {
-        let linha = document.createElement("tr");
+        let linha = document.createElement("tr")
 
-        let celulaNome = document.createElement("td");
-        celulaNome.innerHTML = contatos[i].nome;
-        linha.appendChild(celulaNome);
+        let nome = document.createElement("td")
+        nome.innerHTML = contatos[i].nome
+        linha.appendChild(nome)
 
-        let celulaTelefone = document.createElement("td");
-        celulaTelefone.innerHTML = contatos[i].telefone;
-        linha.appendChild(celulaTelefone);
+        let telefone = document.createElement("td")
+        telefone.innerHTML = contatos[i].telefone
+        linha.appendChild(telefone)
 
-        corpoTabela.appendChild(linha);
+        tabela.appendChild(linha)
     }
+}
+
+//exibe a tabela no navegador
+let body = document.getElementById("tabela")
+body.innerHTML += window.localStorage.getItem("tabela")
+
+// mantem a exibição a tabela após o carregamento da pagina
+window.onload = function() {
+    exibirDados();
 }
