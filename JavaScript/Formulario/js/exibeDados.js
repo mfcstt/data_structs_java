@@ -1,13 +1,23 @@
 function exibirDados() {
-    //recupera os valorres 
-    let contatos = JSON.parse(localStorage.getItem('meusContatos')) || []
-    let tabela = document.getElementById("tabela")
-    
+    let contatos = JSON.parse(localStorage.getItem('meusContatos')) || [];
 
+    let tabela = document.getElementById("tabela")
+
+    tabela.innerHTML = '';
+
+    let cabecalho = `
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+        </tr>
+    `;
+    tabela.innerHTML = cabecalho;
+    
+    
     //cria nova linhas cada vez que novos dados sao adicionados
     for (let i = 0; i < contatos.length; i++) {
         let linha = document.createElement("tr")
-
+        
         let nome = document.createElement("td")
         nome.innerHTML = contatos[i].nome
         linha.appendChild(nome)
@@ -15,11 +25,12 @@ function exibirDados() {
         let telefone = document.createElement("td")
         telefone.innerHTML = contatos[i].telefone
         linha.appendChild(telefone)
-
+        
         tabela.appendChild(linha)
     }
-}
 
+
+}
 //exibe a tabela no navegador
 let body = document.getElementById("tabela")
 body.innerHTML += window.localStorage.getItem("tabela")

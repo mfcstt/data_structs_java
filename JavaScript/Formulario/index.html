@@ -3,38 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
 </head>
 <body>
-    <form >
+    <form id="meuFormulario">
         <h1>Agenda</h1>
         <div>
             <div>
-                <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="nome" placeholder="Insira seu nome" required>
+               
+                <input type="text" name="nome" id="nome" placeholder="Insira seu nome" >
             </div>
           
         
-            <label for="telefone" >Telefone:</label>
-            <input type="tel"  id="telefone" placeholder="Insira seu número" required>
+            
+            <input type="tel" id="telefone" placeholder="Insira seu número de telefone">
             </div>
         
             
-          
+        <div class="button-container">
+            
             <button onclick="armazenarValores()">Adicionar</button>
-            <button onclick="pesquisar()">Pesquisar</button>
+            <button onclick="pesquisar(event)">Pesquisar</button>
+        </div>
          
         
             <br>
             <br>
         
 
-            <div id="tabela"></div>
+            <div>
+               
+                    <legend>Lista de Contatos</legend>
+                    <table id="tabela" border="1px">
+                        <thead><tr>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                        </tr>
+                        </thead>
+                        <tbody id="corpo">
+                            
+                        </tbody>
+                    </table>
+               
+            </div>
 
     </form>
  
     <script src="js/LocalStorage/armazenamento.js"></script>
     <script src="js/exibeDados.js"></script>
+    <script src="js/LocalStorage/pesquisaDados.js"></script>
+  
     
     
 </body>
