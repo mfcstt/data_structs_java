@@ -1,21 +1,24 @@
-public class ListaRegras implements ILista{
+public class ListaRegras{
 
-    @Override
-    public void adicionar(String dado) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'adicionar'");
+
+    static public void adicionar(String dado, String[] vetor) {
+            if (vetor[vetor.length -1] == null || 
+            Integer.parseInt(vetor[vetor.length-1]) < Integer.parseInt(dado) ) {
+            vetor[vetor.length-1] = dado; 
+            }
+        System.out.println("inseri");
     }
 
-    @Override
-    public String excluir(String dado) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'excluir'");
+
+    static public String excluir(String dado, String[] vetor) {
+       System.out.println("Exclui dado");
+    return null;
     }
 
-    @Override
-    public boolean consultar(String dado) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'consultar'");
+
+    static public boolean consultar(String dado, String[] vetor) {
+        System.out.println("Consultei dado");
+        return false;
     }
     
 }

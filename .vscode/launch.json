@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Lista",
+            "request": "launch",
+            "mainClass": "Lista",
+            "projectName": "data_structs_java_c867f479"
+        },
+        {
+            "type": "java",
             "name": "App",
             "request": "launch",
             "mainClass": "App",
