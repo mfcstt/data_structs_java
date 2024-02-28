@@ -6,6 +6,9 @@ public class ListaRegras{
             Integer.parseInt(vetor[vetor.length-1]) < Integer.parseInt(dado) ) {
             vetor[vetor.length-1] = dado; 
             }
+
+            reordenar(vetor);
+            
         System.out.println("inseri");
     }
 
@@ -20,5 +23,23 @@ public class ListaRegras{
         System.out.println("Consultei dado");
         return false;
     }
+
+    private static void reordenar(String vetor[]) {
+
+        for (byte pos = (byte) (vetor.length - 1); pos > 0; pos--) {
+    
+          if (vetor[pos - 1] == null || Integer.parseInt(vetor[pos]) > Integer.parseInt(vetor[pos - 1])) {
+    
+            String aux = vetor[pos - 1];
+            vetor[pos - 1] = vetor[pos];
+            vetor[pos] = aux;
+    
+          } else {
+            break;
+          }
+    
+        }
+    
+      }
     
 }

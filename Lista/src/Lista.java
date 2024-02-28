@@ -12,17 +12,17 @@ public class Lista {
     
     static void adicionaDado(){
 
-        while () {
-            
-        }
         boolean repetir = true;
-        System.out.println("Adicionando dados");
-        String dadoInserido = scanner.nextLine();
-    
-        ListaRegras.adicionar(dadoInserido, lista);
-    
-        for (String dado : lista) {
-            System.out.println(dado);
+        while (repetir) {
+            
+            System.out.println("Adicionando dados");
+            String dadoInserido = scanner.nextLine();
+        
+            ListaRegras.adicionar(dadoInserido, lista);
+        
+            for (String dado : lista) {
+                System.out.println(dado);
+            }
         }
 
     }
