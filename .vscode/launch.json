@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ListaMatriz",
+            "request": "launch",
+            "mainClass": "listamatriz.ListaMatriz",
+            "projectName": "data_structs_java_52906dfe"
+        },
+        {
+            "type": "java",
             "name": "Lista",
             "request": "launch",
             "mainClass": "Lista",

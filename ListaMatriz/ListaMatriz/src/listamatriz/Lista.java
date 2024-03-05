@@ -56,7 +56,7 @@ public class Lista {
   public static String exibir(String[][] matriz) {
     String lista = "";
     for (int linha = 0; linha < matriz.length; linha++) {
-      lista += matriz[linha][colNome] + " = " + matriz[linha][colQuantidade] + "\n";
+      lista += matriz[linha][colNome] + "\t"+ " Lugares Reservados:  " + "\t" + matriz[linha][colQuantidade] + "\n";
     }
     return lista;
   }
