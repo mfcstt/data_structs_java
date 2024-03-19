@@ -36,18 +36,18 @@ public class Pilha {
             }
         }
     
-    // public static String desempilha(){
-    //     char retorno = "";
-    //     if (!estaVazia()){
-    //         retorno = pilha[top];
-    //         pilha[top--] = (Character) null;
-    //     }
-    //     else{
-    //         throw new RuntimeException("Pilha vazia.");
-    //     }
-    //     return retorno;
-        
-    // }
+    public static char desempilha(char pilha[]){
+        char letra = '\0';
+        if (!estaVazia()){
+            letra = pilha[top];
+            pilha[top] = '\0';
+            top--;   
+        }
+        else{
+            throw new RuntimeException("Pilha vazia.");
+        }
+        return letra;
+    }
     
     public static char consultaTop(){
         if (!estaVazia()){
