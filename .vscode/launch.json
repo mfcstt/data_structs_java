@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TorreMov",
+            "request": "launch",
+            "mainClass": "hanoi.TorreMov",
+            "projectName": "data_structs_java_386c356"
+        },
+        {
+            "type": "java",
             "name": "PilhaVetor",
             "request": "launch",
             "mainClass": "pilhavetor.PilhaVetor",

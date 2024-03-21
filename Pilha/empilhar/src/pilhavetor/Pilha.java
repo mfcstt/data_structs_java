@@ -49,9 +49,10 @@ public class Pilha {
         return letra;
     }
     
-    public static char consultaTop(){
+    public static char consultaTop(char pilha[]){
         if (!estaVazia()){
             return pilha[top];
+
         }
         else{
             throw new RuntimeException("Pilha vazia.");
