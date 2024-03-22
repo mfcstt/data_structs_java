@@ -4,7 +4,7 @@ package hanoi;
 
 import java.util.Scanner;
 
-public class TorreA {
+public class TorreC {
 
     static Scanner teclado = new Scanner(System.in);
     
@@ -50,7 +50,7 @@ public class TorreA {
 
         }
         else{
-            throw new RuntimeException("Torre vazia.");
+            return 10;
         }
     }
     
