@@ -1,5 +1,5 @@
 package circular;
-public class FilaCircular {
+public class FilaNormal {
 
     static int[] fila = new int[5];
     static int inicio = -1;
@@ -16,8 +16,8 @@ public class FilaCircular {
         return (elementos == 0);
     }
 
-    
-    static void pop(int valor){
+
+    static void inserir(int valor){
         if(!estaCheia()){
           fim = (fim + 1) == fila.length ? 0 : fim + 1;
           fila[fim] = valor;
@@ -31,7 +31,7 @@ public class FilaCircular {
 
     }
 
-    static String push(){
+    static String remover(){
         int i;;
         if(!estaVazia()){
             i = fila[inicio];
@@ -43,6 +43,16 @@ public class FilaCircular {
         throw new RuntimeException("Fila vazia");
     }
     return String.valueOf(i);
+    }
+    
+
+    static String imprimir(){
+        String aux = "";
+        for(String conteudo : veor){
+            aux += conteudo + " ";
+        }
+        aux += "\n";
+        return aux;
     }
     
 }
