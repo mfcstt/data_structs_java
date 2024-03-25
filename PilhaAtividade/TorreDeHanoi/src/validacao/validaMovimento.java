@@ -21,7 +21,7 @@ public class validaMovimento {
                 dado = Integer.parseInt(aux);
                 erro = false;
             }catch(NumberFormatException e){
-                System.out.println(erro);
+                System.out.println(Msgerro);
                 erro = repetir;
             }
         }while(erro);

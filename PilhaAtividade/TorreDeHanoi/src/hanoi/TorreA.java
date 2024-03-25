@@ -50,7 +50,7 @@ public class TorreA {
 
         }
         else{
-            throw new RuntimeException("Torre vazia.");
+            return 10;
         }
     }
     
