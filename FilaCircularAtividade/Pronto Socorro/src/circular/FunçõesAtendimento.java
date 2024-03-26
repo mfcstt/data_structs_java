@@ -3,16 +3,18 @@ package circular;
 import validacao.Validar;
 
 public class FunçõesAtendimento {
-    static String paciente = Validar.validaPaciente(
-        "Digite o nome do paciente",
-        "Digite um nome válido!", true);
-
+    
     static void inserirPaciente() {
         int tipoDeAtendimento = Validar.validaOpcaoMenu( 
-                    "Digite o tipo de atendimento:" + "\n" + 
-                    "1 - Prioritário" + "\n" + 
-                    "2 - Padrão",
-                    "Digite um valor inteiro!", true);
+            
+                "Digite o tipo de atendimento:" + "\n" + 
+                "1 - Prioritário" + "\n" + 
+                "2 - Padrão",
+                "Digite um valor inteiro!", true);
+
+               String paciente = Validar.validaPaciente(
+               "Digite o nome do paciente",
+               "Digite um nome válido!", true);
 
                     switch (tipoDeAtendimento) {
                         case 1:
