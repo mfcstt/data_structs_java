@@ -5,11 +5,16 @@ import validacao.Validar;
 public class FunçõesAtendimento {
 
     static void inserirPaciente() {
-        int tipoDeAtendimento = Validar.validaOpcaoMenu("Digite o tipo de atendimento:" + "\n" + 
-                    "1 - Prioritário" + "\n" + "2 - Padrão",
+        int tipoDeAtendimento = Validar.validaOpcaoMenu( 
+                    "Digite o tipo de atendimento:" + "\n" + 
+                    "1 - Prioritário" + "\n" + 
+                    "2 - Padrão",
                     "Digite um valor inteiro!", true);
         try {
-            String paciente = Validar.validaPaciente("Digite o nome do paciente","Digite um nome válido!", true);
+            String paciente = Validar.validaPaciente(
+                "Digite o nome do paciente",
+                "Digite um nome válido!",
+                true);
             if (tipoDeAtendimento == 1) {
                 if (!AtendimentoPrioritario.estaCheia()) {
                     AtendimentoPrioritario.inserir(paciente);
