@@ -4,17 +4,21 @@ import java.util.Scanner;
 public class Validar {
     static Scanner teclado = new Scanner(System.in);
 
-    public static String validaPaciente(String mensagem, String MsgErro, boolean repetir){
-        System.out.println(mensagem);
-        String dado = teclado.nextLine();
+    public static String validaPaciente(String mensagem, String msgErro, boolean repetir) {
+      boolean erro;
+      String dado = "";
 
-        if(dado.length() < 3){
-            System.out.println(MsgErro);
-            }
-        
+      do {
+          System.out.println(mensagem);
+          dado = teclado.nextLine();
+          erro = dado.length() < 3 || !dado.matches("[a-zA-Z]+");
+          if (erro) {
+              System.out.println(msgErro);
+          }
+      } while (repetir && erro);
 
-        return dado;
-    }
+      return dado;
+  }
 
     public static int validaOpcaoMenu(String mensagem, String msgErro, boolean repetir) {
       int dado = 0;

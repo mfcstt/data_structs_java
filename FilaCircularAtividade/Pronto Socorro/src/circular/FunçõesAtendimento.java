@@ -45,7 +45,7 @@ public class FunçõesAtendimento {
         int chamarPaciente = Validar.validaOpcaoMenu(
             "Qual fila deseja chamar? "+ "\n" +
              "1 - Atendimento Prioritário" + "\n" + 
-             "Atendimento Padrão", 
+             "2 - Atendimento Padrão", 
              "Digite um valor inteiro!", true);
         switch (chamarPaciente) {
             case 1:
