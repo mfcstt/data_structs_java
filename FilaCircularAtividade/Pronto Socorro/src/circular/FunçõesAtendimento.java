@@ -6,48 +6,40 @@ public class FunçõesAtendimento {
     
     static void inserirPaciente() {
         int tipoDeAtendimento = Validar.validaOpcaoMenu( 
-            
-                "Digite o tipo de atendimento:" + "\n" + 
-                "1 - Prioritário" + "\n" + 
-                "2 - Padrão",
-                "Digite um valor inteiro!", true);
+            "Digite o tipo de atendimento:" + "\n" + 
+            "1 - Prioritário" + "\n" + 
+            "2 - Padrão",
+            "Digite um valor inteiro!", true);
 
-               String paciente = Validar.validaPaciente(
-               "Digite o nome do paciente",
-               "Digite um nome válido!", true);
-
-                    switch (tipoDeAtendimento) {
-                        case 1:
-                        if (!AtendimentoPrioritario.estaCheia()) {
-                            AtendimentoPrioritario.inserir(paciente);
-                            System.out.println("Paciente inserido no atendimento prioritário");
-                        } else if (!AtendimentoPadrao.estaCheia()) {
-                            System.out.println("Não foi possível inserir o paciente no atendimento prioritário" + "\n" + 
-                            "Paciente inserido no atendimento padrão");
-                            AtendimentoPadrao.inserir(paciente);
-                        }
-                        else {
-                            throw new RuntimeException("Atendimento Prioritário cheio");
-                        }
-                        break;
-                        case 2:
-                        if (!AtendimentoPadrao.estaCheia()) {
-                            AtendimentoPadrao.inserir(paciente);
-                            System.out.println("Paciente inserido no atendimento padrão");
-                        } else if (!AtendimentoPrioritario.estaCheia()){
-                            System.out.println("Não foi possível inserir o paciente no atendimento padrão" + "\n" + 
-                            "Paciente inserido no atendimento prioritário");
-                            AtendimentoPrioritario.inserir(paciente);
-                        }
-                        else {
-                            throw new RuntimeException("Atendimento Padrão cheio");
-                        }
-                            break;
-                            default:
-                                System.out.println("Opção inválida! Por favor, digite 1 para Atendimento Prioritário ou 2 para Atendimento Padrão.");
-                                break;
-                        }
+        switch (tipoDeAtendimento) {
+            case 1:
+            case 2:
+                String paciente = Validar.validaPaciente(
+                    "Digite o nome do paciente",
+                    "Digite um nome válido!", true);
+                try {
+                if (tipoDeAtendimento == 1 && !AtendimentoPrioritario.estaCheia()) {
+                        AtendimentoPrioritario.inserir(paciente);
+                        System.out.println("Paciente inserido no atendimento prioritário");
+                
+                    } else if (!AtendimentoPadrao.estaCheia()) {
+                        System.out.println("Não foi possível inserir o paciente no atendimento prioritário" + "\n" + 
+                        "Paciente inserido no atendimento padrão");
+                        AtendimentoPadrao.inserir(paciente);
+                    } else {
+                        throw new RuntimeException("Atendimento Prioritário cheio");
                     }
+                    break;
+                    
+                } catch (Exception e) {
+                    System.out.println("Não foi possível inserir o paciente no" + tipoDeAtendimento );
+                }
+                
+            default:
+                System.out.println("Opção inválida! Por favor, digite 1 para Atendimento Prioritário ou 2 para Atendimento Padrão.");
+                break;
+        }
+    }
       
 
     static void chamarPaciente() {
