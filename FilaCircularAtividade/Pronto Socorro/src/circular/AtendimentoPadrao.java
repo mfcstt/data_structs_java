@@ -1,7 +1,7 @@
 package circular;
-public class FilaPreferencial {
+public class AtendimentoPadrao{
 
-    static int[] fila = new int[5];
+    static String fila[] = new String[5];
     static int inicio = -1;
     static int fim = -1;
     static int elementos = 0;
@@ -17,7 +17,7 @@ public class FilaPreferencial {
     }
 
 
-    static void inserir(int valor){
+    static void inserir(String valor){
         if(!estaCheia()){
           fim = (fim + 1) == fila.length ? 0 : fim + 1;
           fila[fim] = valor;
@@ -32,10 +32,10 @@ public class FilaPreferencial {
     }
 
     static String remover(){
-        int i;;
+        String i;;
         if(!estaVazia()){
             i = fila[inicio];
-            fila[inicio++] = 0;
+            fila[inicio++] = "";
             inicio = (inicio == fila.length ? 0 : inicio);
             elementos--;
     }
@@ -48,10 +48,10 @@ public class FilaPreferencial {
 
     static String imprimir(){
         String aux = "";
-        for(String conteudo : veor){
+        for(String conteudo : fila){
             aux += conteudo + " ";
         }
-        aux += "\n";
+        return aux += "\n";
      
     }
     
