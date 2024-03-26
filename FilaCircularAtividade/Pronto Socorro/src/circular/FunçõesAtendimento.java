@@ -68,6 +68,7 @@ public class FunçõesAtendimento {
                 }
                 break;
             default:
+                System.out.println("Opção inválida");
                 break;
         }
     }
