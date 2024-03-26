@@ -19,21 +19,21 @@ public class FunçõesAtendimento {
                     "Digite um nome válido!", true);
                 try {
                 if (tipoDeAtendimento == 1 && !AtendimentoPrioritario.estaCheia()) {
-                        AtendimentoPrioritario.inserir(paciente);
-                        System.out.println("Paciente inserido no atendimento prioritário");
-                
-                    } else if (!AtendimentoPadrao.estaCheia()) {
-                        System.out.println("Não foi possível inserir o paciente no atendimento prioritário" + "\n" + 
-                        "Paciente inserido no atendimento padrão");
-                        AtendimentoPadrao.inserir(paciente);
-                    } else {
-                        throw new RuntimeException("Atendimento Prioritário cheio");
-                    }
+                    AtendimentoPrioritario.inserir(paciente);
+                    System.out.println("Paciente inserido no atendimento prioritário");
+                } else if (!AtendimentoPadrao.estaCheia()) {
+                    System.out.println("Não foi possível inserir o paciente no atendimento prioritário" + "\n" + 
+                    "Paciente inserido no atendimento padrão");
+                    AtendimentoPadrao.inserir(paciente);
+                } else {
+                    throw new RuntimeException("Atendimento Prioritário cheio");
+                }
                     break;
                     
                 } catch (Exception e) {
-                    System.out.println("Não foi possível inserir o paciente no" + tipoDeAtendimento );
+                    System.out.println("Não foi possível inserir o paciente, os atendimentos estão cheios");
                 }
+                break;
                 
             default:
                 System.out.println("Opção inválida! Por favor, digite 1 para Atendimento Prioritário ou 2 para Atendimento Padrão.");
