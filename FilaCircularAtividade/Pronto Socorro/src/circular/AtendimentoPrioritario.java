@@ -7,9 +7,7 @@ public class AtendimentoPrioritario {
     static int elementos = 0;
 
     static boolean estaCheia(){
-        int next = fim + 1;
-        next = (next == fila.length ? 0 : next);
-        return next == inicio ? true : false;
+       return (elementos == fila.length);
     }
 
     static boolean estaVazia(){
